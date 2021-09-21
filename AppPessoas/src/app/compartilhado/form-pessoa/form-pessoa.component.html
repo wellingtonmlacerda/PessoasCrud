@@ -1,0 +1,90 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nome">Pessoa:</label>
+      <input type="text" class="form-control" id="nome" rows="3" name="nome"
+        [(ngModel)]="pessoa.NOME" #nome="ngModel" [class.is-invalid]="!nome.valid && nome.touched" required>
+      <div *ngIf="!nome.valid && nome.touched" class="text-danger">
+        *Campo obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="sobrenome">Sobrenome:</label>
+      <input type="text" class="form-control" id="sobrenome" rows="3" name="sobrenome"
+        [(ngModel)]="pessoa.SOBRENOME" #sobrenome="ngModel" [class.is-invalid]="!sobrenome.valid && sobrenome.touched" required>
+      <div *ngIf="!sobrenome.valid && sobrenome.touched" class="text-danger">
+        *Campo obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" id="cpf" (focusout)="ValidaCpf(cpf.value) " rows="3" placeholder="000.000.000-00" name="cpf"
+          [(ngModel)]="pessoa.CPF" mask="000.000.000-00" #cpf="ngModel" [class.is-invalid]="!cpf.valid && cpf.touched" required>
+        <div *ngIf="!cpf.valid && cpf.touched" class="text-danger cpf">
+          *Campo obrigatório
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="nacionalidade">Nacionalidade</label>
+      <input type="date" class="form-control" id="nacionalidade" rows="3" name="nacionalidade"
+        [(ngModel)]="pessoa.NACIONALIDADE" #nacionalidade="ngModel" [class.is-invalid]="!nacionalidade.valid && nacionalidade.touched" required>
+      <div *ngIf="!nacionalidade.valid && nacionalidade.touched" class="text-danger">
+        *Campo obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cep">CEP:</label>
+      <input type="text" class="form-control" id="cep" rows="3" placeholder="00000-000" name="cep"
+        [(ngModel)]="pessoa.CEP" #cep="ngModel" [class.is-invalid]="!cep.valid && cep.touched" required>
+      <div *ngIf="!cep.valid && cep.touched" class="text-danger">
+        *Campo obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="estado">Estado:</label>
+        <select #estado="ngModel" class="form-control" id="estado" name="estado" [class.is-invalid]="!estado.valid && estado.touched" [(ngModel)]="pessoa.ESTADO" required>
+          <option [ngValue]="undefined">Selecione...</option>
+          <option value="Acre (AC)">Acre (AC)</option>
+          <option value="Alagoas (AL)">Alagoas (AL)</option>
+          <option value="Amapá (AP)">Amapá (AP)</option>
+        </select>
+        <div *ngIf="!estado.valid && estado.touched" class="invalid-feedback">
+          *Campo obrigatório
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="cidade">Cidade:</label>
+      <input type="text" class="form-control" id="cidade" rows="3" name="cidade"
+        [(ngModel)]="pessoa.CIDADE" #cidade="ngModel" [class.is-invalid]="!cidade.valid && cidade.touched" required>
+      <div *ngIf="!cidade.valid && cidade.touched" class="text-danger">
+        *Campo obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="logradouro">Logradouro:</label>
+      <input type="text" class="form-control" id="logradouro" rows="3" placeholder="Av. dos Autonomistas, 2310" name="logradouro"
+        [(ngModel)]="pessoa.LOGRADOURO" #logradouro="ngModel" [class.is-invalid]="!logradouro.valid && logradouro.touched" required>
+      <div *ngIf="!logradouro.valid && logradouro.touched" class="text-danger">
+        *Campo obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="text" class="form-control" id="email" rows="3" placeholder="exemplo@email.com" name="email"
+        [(ngModel)]="pessoa.EMAIL" #email="ngModel" [class.is-invalid]="!email.valid && email.touched" required>
+      <div *ngIf="!email.valid && email.touched" class="text-danger">
+        *Campo obrigatório
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone:</label>
+      <input type="text" class="form-control" id="telefone" rows="3" placeholder="(00) 00000-0000" name="telefone"
+        [(ngModel)]="pessoa.TELEFONE" #telefone="ngModel" [class.is-invalid]="!telefone.valid && telefone.touched" required>
+      <div *ngIf="!telefone.valid && telefone.touched" class="text-danger">
+        *Campo obrigatório
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Salvar</button>
+  </form>
+  <script>
+    $('.cpf').mask('000.000.000-00');
+  </script>

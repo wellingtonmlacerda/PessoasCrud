@@ -1,0 +1,77 @@
+<div class="container mt-3">
+    <!-- <div class="row">
+      <div class="col-md-8 mx-auto">
+        <app-error-msg></app-error-msg>
+        <div class="text-right">
+          <button type="button" class="btn btn-success" routerLink="/pessoa/criar">Novo pessoa</button>
+        </div>
+        <div class="text-center" *ngIf="!existemPessoas()">
+          Nenhum pessoa cadastrado.
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="row mt-3" *ngFor="let pessoa of pessoas">
+      <div class="col-md-8 mx-auto">
+        <div class="card">
+          <div class="card-header">
+            <span class="badge badge-pill">
+              ESTADO {{pessoa.ESTADO}}
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{pessoa.NOME}}</p>
+          </div>
+          <div class="card-footer">
+            <div class="text-right">
+              <button type="button" class="btn btn-primary btn-sm ml-1" routerLink="/pessoa/editar/{{pessoa.ID}}">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deletaPessoa(pessoa.ID)">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="container">
+      <div class="card list-car">
+        <div class="card-header text-right">
+          <h5 class="float-left">Lista de pessoas</h5>
+          <button type="button" class="btn btn-success" routerLink="/pessoa/criar">Nova pessoa</button>
+        </div>
+        <div class="card-body">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">CPF</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pessoa of pessoas">
+                  <td>{{pessoa.ID}}</td>
+                  <td>{{pessoa.NOME}}</td>
+                  <td>{{pessoa.CPF}}</td>
+                  <td>{{pessoa.EMAIL}}</td>
+                  <td>
+                    <button type="button" class="btn btn-warning btn-sm"  routerLink="/pessoa/editar/{{pessoa.ID}}">Editar</button>
+                    <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deletaPessoa(pessoa.ID)">Deletar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <app-error-msg></app-error-msg>
+        <!-- <div class="text-right">
+          <button type="button" class="btn btn-success" routerLink="/pessoa/criar">Novo pessoa</button>
+        </div> -->
+        <div class="text-center" *ngIf="!existemPessoas()">
+          Nenhum pessoa cadastrado.
+        </div>
+      </div>
+    </div>
+  </div>
